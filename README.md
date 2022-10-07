@@ -8,7 +8,7 @@ The site live link : https://sendme-project.vercel.app/
 5. Context API for state management, This is use because this application is not a large application thereby having a small number of states, I would have used redux for the state management but that would have been an over-kill for this small application. 
 
 ## Usage Of The App
-1. Check or the number of product you wish to buy
+1. Check or Select the number of product you wish to buy
 2. Navigate to the order page by clicking on the 'Next' button after selecting the products you wish to purchase.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
