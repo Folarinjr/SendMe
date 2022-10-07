@@ -15,4 +15,3 @@ const SendMeProvider = ({children}: {children: ReactNode}) => {
 }
 
 export {SendMeContext, SendMeProvider}
-

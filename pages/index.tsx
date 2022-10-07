@@ -92,14 +92,11 @@ const Home: NextPage = () => {
                 align={'center'}
                 grow={1}
                 p={3}
-                /* bg='blue.200' */
               >
                 <Box
                   display={'flex'}
-                  //justifyContent='space-between'
                   alignItems={'center'}
                   w={'50%'}
-                  /* bg='red' */
                 >
                   <Checkbox
                     colorScheme={'red'}

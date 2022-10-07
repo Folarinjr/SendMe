@@ -6,7 +6,6 @@ import { Box, Text, Divider, Flex, Button, Center } from '@chakra-ui/react'
 import { SendMeContext } from '../context/SendMeContext'
 
 const Next:React.FC = () => {
-
     const {orderItems, total, delivery} = useContext(SendMeContext);
 
   return (
