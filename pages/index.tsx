@@ -1,8 +1,10 @@
 import type { NextPage } from 'next'
 import Link from 'next/link'
 //import Head from 'next/head'
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import {data} from '../components/data/Data'
+
+import { SendMeContext } from '../context/SendMeContext'
 
 import { Box, Button, Flex, Select, Input,  Checkbox } from '@chakra-ui/react'
 
@@ -13,16 +15,15 @@ interface Item {
 
 
 const Home: NextPage = () => {
+  const {orderItems, setOrderItems,setTotal} = useContext(SendMeContext);
+
   const [checkedState, setCheckedState] = useState<Item[]>(
     data.map((el) => ({ id: el.id, selected: false }))
   );
 
-  const [orderItems, setOrderItems] = useState<
-    { id: number; name: string; price: number }[]
-  >([]);
 
-  const [total, setTotal] = useState<number>(0);
 
+  //On Change Function
   const handleChange = (id: number) => {
     const newState = checkedState.filter((item) => item.id === id);
     if (newState.length === 0) {
@@ -46,13 +47,13 @@ const Home: NextPage = () => {
     setTotal(totalPrice);
   }
 
+
+  //On Submit Function
   const onSubmit = () => {
-    if(orderItems.length > 1){
-      alert(JSON.stringify(orderItems))
-      return true
+    if(orderItems.length > 1) {
+      alert('Nice Purchase')
     }else{
-      alert('Please, select a product')
-      return false
+      return;
     }
   }
 
@@ -70,6 +71,7 @@ const Home: NextPage = () => {
               colorScheme='red'
               variant={'solid'}
               size='sm'
+              onClick={onSubmit}
             >
               NEXT
             </Button>
@@ -117,18 +119,7 @@ const Home: NextPage = () => {
               </Flex>
               );
             })}
-            
-          <button onClick={onSubmit}>Submit</button>
         </form>
-        {orderItems.map((item) => (
-        <div key={item.id}>
-          <h5>{item.name}</h5>
-          <h5>&#8358;{(item.price).toLocaleString()}</h5>
-        </div>
-      ))}
-      <div>
-        <h3>Total Price: &#8358; {(total).toLocaleString()}</h3>
-      </div>
       </Box>
     </Box>
   )

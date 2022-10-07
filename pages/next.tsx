@@ -1,9 +1,12 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import Link from 'next/link'
 import {ArrowBackIcon} from '@chakra-ui/icons'
 import { Box, Text, Divider, Flex, Button, Center } from '@chakra-ui/react'
 
+import { SendMeContext } from '../context/SendMeContext'
+
 const next = () => {
+    const {orderItems,total,delivery} = useContext(SendMeContext);
   return (
     <Box width={{sm:'100%', md: '80%',lg:'40%'}} mx='auto' p={10} bg={'gray.100'}>
         <Link href={'/'}>
@@ -22,44 +25,33 @@ const next = () => {
 
         <Box mt={8} bg={'white'} borderRadius={8} pt={8} pr={8} pl={4}>
             <Text>Products Ordered</Text>
-            <Box mt={5}>
-                <Flex justify={'space-between'}>
-                    <Text>Lorem ipsum dolor sit amet.</Text>
-                    <Text>&#8358;{(8000).toLocaleString()}</Text>
-                </Flex>
-            </Box>
-            <Box mt={5}>
-                <Flex justify={'space-between'}>
-                    <Text>Lorem ipsum dolor sit amet.</Text>
-                    <Text>&#8358;{(8000).toLocaleString()}</Text>
-                </Flex>
-            </Box>
-            <Box mt={5}>
-                <Flex justify={'space-between'}>
-                    <Text>Subtotal</Text>
-                    <Text>&#8358;{(8000).toLocaleString()}</Text>
-                </Flex>
-            </Box>
+            {orderItems.map((item:{id: number, name: string, price: number})=>(
+                <Box mt={5} key={item.id}>
+                    <Flex justify={'space-between'}>
+                        <Text>{item.name}</Text>
+                        <Text>&#8358;{(item.price).toLocaleString()}</Text>
+                    </Flex>
+                </Box>
+            ))}
 
             <Divider orientation='horizontal' borderWidth={'1px'} color={'gray.200'} mt={5}/>
 
             <Box>
                 <Flex justify={'space-between'} mt={5} color={'gray.500'}>
                     <Text>Subtotal</Text>
-                    <Text>&#8358;{(8000).toLocaleString()}</Text>
+                    <Text>&#8358;{(total).toLocaleString()}</Text>
                 </Flex>
 
                 <Flex justify={'space-between'} mt={4} color={'gray.500'}>
                     <Text>Delivery Fee</Text>
-                    <Text>&#8358;{(300).toLocaleString()}</Text>
+                    <Text>&#8358;{(delivery).toLocaleString()}</Text>
                 </Flex>
 
                 <Flex justify={'space-between'} mt={4} pb={5}>
                     <Text>Total</Text>
-                    <Text>&#8358;{(8300).toLocaleString()}</Text>
+                    <Text>&#8358;{(total + delivery).toLocaleString()}</Text>
                 </Flex>
             </Box>
-
         </Box>
         <Center mt={5}>
             <Button
