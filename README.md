@@ -1,5 +1,12 @@
 The site live link : https://sendme-project.vercel.app/
 
+##Packages/Dependencies Used
+1. Chakra UI.
+2. Typescript.
+3. Nextjs.
+4. React hook form for validation.
+5. Context API for state management, This is use because this application is not a large application thereby having a small number of states, I would have used redux for the state management but that would have been an over-kill for this small application. 
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
