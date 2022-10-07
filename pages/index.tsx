@@ -66,7 +66,7 @@ const Home: NextPage = () => {
       <Box width={{sm:'100%', md: '80%',lg:'40%'}} mx='auto' p={10}>
         <Flex align='center' justifyContent={'space-between'} mb={5}>
           <h3>New Order</h3>
-          <Link href={orderItems.length ? '/next' : '/'}>
+          <Link href={orderItems.length ? '/Next' : '/'}>
             <Button 
               colorScheme='red'
               variant={'solid'}
