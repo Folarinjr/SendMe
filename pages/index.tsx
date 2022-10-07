@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Link from 'next/link'
-//import Head from 'next/head'
+import {useForm} from 'react-hook-form'
 import React, {useState, useContext} from 'react'
 import {data} from '../components/data/Data'
 
@@ -13,8 +13,8 @@ interface Item {
   selected: boolean;
 }
 
-
 const Home: NextPage = () => {
+  const {handleSubmit} = useForm();
   const {orderItems, setOrderItems, setTotal} = useContext(SendMeContext);
 
   const [checkedState, setCheckedState] = useState<Item[]>(
@@ -50,9 +50,8 @@ const Home: NextPage = () => {
 
   //On Submit Function
   const onSubmit = () => {
-    if(orderItems.length > 1) {
-      alert('Nice Purchase')
-    }else{
+    if(orderItems.length < 1) {
+      alert('Please Select Atleast One Item, Thanks');
       return;
     }
   }
@@ -84,7 +83,7 @@ const Home: NextPage = () => {
           <Select placeholder='COW' color={'red.400'} borderColor={'red.200'} bg={'red.100'} size='sm' width={'25%'} fontSize='17' borderRadius={10}/>
           <Input placeholder='Search' size={'sm'} borderRadius={10} width={'70%'}/>
         </Box>
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           {data.map(({ name, price }, index) => {
             return (
               <Flex 
