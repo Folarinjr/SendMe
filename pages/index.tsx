@@ -15,7 +15,7 @@ interface Item {
 
 
 const Home: NextPage = () => {
-  const {orderItems, setOrderItems,setTotal} = useContext(SendMeContext);
+  const {orderItems, setOrderItems, setTotal} = useContext(SendMeContext);
 
   const [checkedState, setCheckedState] = useState<Item[]>(
     data.map((el) => ({ id: el.id, selected: false }))

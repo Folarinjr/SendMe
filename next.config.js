@@ -4,9 +4,5 @@ const nextConfig = {
   swcMinify: true,
 }
 
-module.exports = {
-  nextConfig,
-  typescript: {
-    ignoreBuildErrors: true,
-  }
-}
+module.exports = nextConfig
+
