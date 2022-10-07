@@ -1,6 +1,6 @@
 The site live link : https://sendme-project.vercel.app/
 
-##Packages/Dependencies Used
+##  Packages/Dependencies Used
 1. Chakra UI.
 2. Typescript.
 3. Nextjs.
