@@ -1,4 +1,4 @@
-import React,{useContext} from 'react'
+import React,{ useContext } from 'react'
 import Link from 'next/link'
 import {ArrowBackIcon} from '@chakra-ui/icons'
 import { Box, Text, Divider, Flex, Button, Center } from '@chakra-ui/react'
