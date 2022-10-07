@@ -7,6 +7,7 @@ import { SendMeContext } from '../context/SendMeContext'
 
 const next = () => {
     const {orderItems,total,delivery} = useContext(SendMeContext);
+    
   return (
     <Box width={{sm:'100%', md: '80%',lg:'40%'}} mx='auto' p={10} bg={'gray.100'}>
         <Link href={'/'}>
